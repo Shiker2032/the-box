@@ -1,0 +1,27 @@
+.card {
+    /* background-image: url(../../../../public/project1.jpg); */
+    max-width: 380px;
+    max-height: 320px;
+    width: 100%;
+    background-repeat: round;
+    background-size: cover;  
+    position: relative;  
+}
+
+.textBlock {
+    background-color: #2947A9;
+    color: white;    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 6px 0;
+}
+
+.textBlock h3 {
+    margin-bottom: 6px;
+}
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+}

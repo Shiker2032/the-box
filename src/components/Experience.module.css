@@ -1,0 +1,41 @@
+.experience {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 0;
+    gap: 14px;
+}
+
+.left {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+}
+
+.right {   
+    max-width: 350px;
+}
+
+.right h2 {   
+    font-size: 60px;
+    margin-bottom: 40px;
+}
+
+.right button {
+    margin-top: 60px;
+}
+
+@media(max-width: 720px) {
+    .experience {
+        flex-direction: column;
+    }
+    .right h2 {
+        font-size: 30px;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+.reputation {
+    padding: 70px 0;
+}
+
+.reputation h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+.cards {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+}
+
+@media (max-width: 701px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}

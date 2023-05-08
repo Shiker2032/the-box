@@ -1,0 +1,30 @@
+.button {
+    border: none;
+    max-width: 250px;
+    max-height: 55px;
+    border-radius: 4px;
+    padding: 1em;
+    color: #2947A9;
+    font-weight: 600;
+    text-align: center;
+}
+
+.transparent {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.blue {
+    background-color: #2947A9;
+    color: white;
+}
+
+.arrow {
+    max-width: 300px;
+    width: 45%;
+    background-color: #292E3D;
+    color: white;
+    padding: 1.5em;
+    font-weight: 400;
+}

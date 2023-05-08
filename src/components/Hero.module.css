@@ -1,0 +1,27 @@
+.hero {
+    height: 646px;
+    width: 100%;
+    background-image: url(../../public/hero.png);
+    background-size: cover;
+    background-position: bottom;      
+    position: relative;
+}
+
+.caption {
+    font-size: 72px;
+    font-weight: 600;
+    max-width: 720px;
+    top: 29%;
+    left: 5%;
+    position: absolute;
+}
+
+@media (max-width: 321px) {
+    .hero {
+        text-align: center;        
+    }
+    .caption {
+        font-size: 54px;
+        max-width: 320px;        
+    }
+}
