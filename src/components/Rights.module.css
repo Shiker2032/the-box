@@ -1,0 +1,10 @@
+.rights {
+    background-color: #2947A9;
+    color: white;
+    padding: 20px 0;
+}
+
+.rights p {
+    max-width: 80%;
+    margin: 0 auto;
+}

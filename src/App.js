@@ -8,6 +8,8 @@ import Experience from "./components/Experience";
 import Consultation from "./components/Consultation";
 import Projects from "./components/Projects/Projects";
 import ContactForm from "./components/Contact-Form";
+import Footer from "./components/Footer";
+import Rights from "./components/Rights";
 
 
 
@@ -23,6 +25,8 @@ function App() {
       <Consultation/>
       <Projects/>
       <ContactForm/>
+      <Footer/>
+      <Rights/>
     </>
   )
 }
