@@ -14,7 +14,7 @@ const Experience = () => {
     <section className={`${styles.experience} container`}>
             <div className={styles.left}>
                 {cards.map((card, i) => (
-                    <Card title={card.title} text={card.text} type={"service"}/>
+                    <Card title={card.title} key={i} text={card.text} type={"service"}/>
                 ))}
             </div>
             <div className={styles.right}>

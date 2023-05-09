@@ -7,6 +7,7 @@
     color: #2947A9;
     font-weight: 600;
     text-align: center;
+    cursor: pointer;
 }
 
 .transparent {
@@ -32,4 +33,9 @@
 .orange {
     background-color:  #F9995D;
     color: white;
+}
+
+.disabled {
+    opacity: 0.7;
+    cursor: default;
 }
