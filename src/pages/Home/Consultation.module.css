@@ -1,7 +1,7 @@
 .consultation {
     height: 300px;
     width: 100%;
-    background: url(../../public/consultation.png);
+    background: url(../../../public/consultation.png);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
