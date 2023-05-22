@@ -1,4 +1,4 @@
-import Button, { BtnColor } from "./Button";
+import Button, { BtnColor } from "../components/utils/Button";
 import Card from "./Card";
 import styles from "./Experience.module.css"
 

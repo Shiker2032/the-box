@@ -1,5 +1,5 @@
 import styles from './AboutUs.module.css';
-import Button, { BtnColor } from './Button';
+import Button, { BtnColor } from '../components/utils/Button';
 
 const AboutUs = () => {    
     return (

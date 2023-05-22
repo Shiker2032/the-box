@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Button, { BtnColor } from '../Button';
+import Button, { BtnColor } from '../../components/utils/Button';
 import styles from './Projects.module.css';
 import ProjectsList from './Projects-list/Projects-list';
 

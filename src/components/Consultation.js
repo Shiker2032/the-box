@@ -1,4 +1,4 @@
-import Button, { BtnColor } from './Button';
+import Button, { BtnColor } from '../components/utils/Button';
 import styles from './Consultation.module.css';
 
 const Consultation = () => {

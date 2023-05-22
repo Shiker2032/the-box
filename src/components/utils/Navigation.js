@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './Navigation.style.module.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -22,19 +23,19 @@ const Navigation = () => {
           </div>         
           <ul className={menuClass}>
           <li className={styles.item}>
-            <a href="#" className={styles.link}>Home</a>
+           <Link to={"/"}>Home</Link>
           </li>
           <li className={styles.item}>
-            <a href="#" className={styles.link}>About Us</a>
+           <Link to={"/about"}>About us</Link>
           </li>
           <li className={styles.item}>
-            <a href="#" className={styles.link}>Projects</a>
+           <Link to={"/projects"}>Projects</Link>
           </li>
           <li className={styles.item}>
-            <a href="#" className={styles.link}>Services</a>
+           <Link to={"/services"}>Services</Link>
           </li>
           <li className={styles.item}>
-            <a href="#" className={styles.link}>Contact Us</a>
+           <Link to={"/contact-us"}>Contact Us</Link>
           </li>
         </ul> 
       </div>      
