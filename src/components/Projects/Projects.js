@@ -2,64 +2,20 @@ import { useEffect, useState } from 'react';
 import Button, { BtnColor } from '../../components/utils/Button';
 import styles from './Projects.module.css';
 import ProjectsList from './Projects-list/Projects-list';
+import { getProjectsData } from '../../api/api';
 
 const Projects = () => {
-  const projectsData = [
-    {
-      title: 'Wildstone Infra Hotel',
-      subtitle: '2715 Ash Dr. San Jose, South Dakota',
-      img: './project1.jpg',
-    },
-    {
-      title: 'Wish Stone Building',
-      subtitle: '2972 Westheimer Rd. Santa Ana, Illinois ',
-      img: './project1.jpg',
-    },
-    {
-      title: 'Mr. Parkinston’s House',
-      subtitle: '3517 W. Gray St. Utica, Pennsylvania',
-      img: './project1.jpg',
-    },
-    {
-      title: 'Oregano Height',
-      subtitle: '2464 Royal Ln. Mesa, New Jersey ',
-      img: './project1.jpg',
-    },
-
-    {
-      title: 'Wildstone Infra Hotel',
-      subtitle: '2715 Ash Dr. San Jose, South Dakota',
-      img: './project2.jpg',
-    },
-    {
-      title: 'Wish Stone Building',
-      subtitle: '2972 Westheimer Rd. Santa Ana, Illinois ',
-      img: './project2.jpg',
-    },
-    {
-      title: 'Mr. Parkinston’s House',
-      subtitle: '3517 W. Gray St. Utica, Pennsylvania',
-      img: './project2.jpg',
-    },
-    {
-      title: 'Oregano Height',
-      subtitle: '2464 Royal Ln. Mesa, New Jersey ',
-      img: './project2.jpg',
-    },
-  ];
-
   const [projects, setProjects] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(4);
   const [loading, setLoading] = useState(false);
-
+  
+  const perPage = 4;
   const lastProject = currentPage * perPage;
   const firstProject = lastProject - perPage;
-  const currentProjects = projectsData.slice(firstProject, lastProject);
-  const totalPages = projectsData.length / perPage;
+  const totalPages = projects.length / perPage;
+  const activeProjects = projects.slice(firstProject,lastProject);
 
   const increasePage = () => {
-
     if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
   };
 
@@ -67,17 +23,15 @@ const Projects = () => {
     if (currentPage > 1) setCurrentPage((prev) => prev - 1);
   };
 
-  const updateProjects = async () => {
+  const loadProjects = async () => {
     setLoading(true);
-    setTimeout(() => {
-      setProjects(projectsData.slice(firstProject, lastProject));
-      setLoading(false);
-    }, 1000);
-  };
+    const data = await getProjectsData();
+    setProjects(data);
+    setLoading(false);
+  }  
 
-  useEffect(() => updateProjects, []);
-  useEffect(() => updateProjects, [currentPage]);
-
+  useEffect(() => loadProjects, [currentPage]);
+  
   return (
     <section className={`${styles.projects} container`}>
       {!loading ? (
@@ -93,7 +47,7 @@ const Projects = () => {
           </div>
           <div className={styles.right}>
             <div className={styles.cards}>
-              <ProjectsList isLoading={loading} projects={currentProjects} />
+              <ProjectsList isLoading={loading} projects={activeProjects} />
             </div>
             <div className={styles.controls}>
               <Button
@@ -105,7 +59,7 @@ const Projects = () => {
                 color={`${BtnColor.arrow} ${currentPage < totalPages ? '' : BtnColor.disabled}`}
                 handleClick={increasePage}
                 text={'Next -->'}
-              />
+              />            
             </div>
           </div>
         </>

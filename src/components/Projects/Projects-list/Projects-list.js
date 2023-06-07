@@ -6,8 +6,8 @@ const ProjectsList = ({ projects, isLoading }) => {
   }
 
   return (
-    projects.map((project, i) => (
-    <div className={`${styles.card}`}>
+  projects &&  projects.map((project, i) => (
+    <div key={i} className={`${styles.card}`}>
       <img src={project.img} alt="tet" />
       <div className={styles.textBlock}>
         <h3>{project.title}</h3>
