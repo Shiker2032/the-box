@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Projects-list.module.css'
 
 const ProjectsList = ({ projects, isLoading }) => {
@@ -7,13 +8,15 @@ const ProjectsList = ({ projects, isLoading }) => {
 
   return (
   projects &&  projects.map((project, i) => (
-    <div key={i} className={`${styles.card}`}>
+    <Link key={i} to={`projects/${i}`}>
+    <div className={`${styles.card}`}>
       <img src={project.img} alt="tet" />
       <div className={styles.textBlock}>
         <h3>{project.title}</h3>
         <p>{project.subtitle}</p>
       </div>
     </div>
+    </Link>
     ))
   );
 };

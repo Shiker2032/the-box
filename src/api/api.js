@@ -52,4 +52,13 @@ const projectsData =  [
     return promise;
   };
 
-export { getProjectsData }
+  const getProjectData = (id) => {
+    const promise = new Promise((resolve, reject) => {
+      window.setTimeout(() => {
+       resolve(projectsData[id])
+      }, 1000);
+    });
+    return promise;
+  } 
+
+export { getProjectsData, getProjectData }
