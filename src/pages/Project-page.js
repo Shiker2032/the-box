@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import { getProjectData } from "../api/api";
+import { getProjectData } from "../api/api"
+
+import styles from "./Project-page.module.css"
 
 
 
@@ -9,6 +11,7 @@ const ProjectPage = () => {
     
 const getProject = async (id) => {
     const projectData = await getProjectData(id);    
+
     setProject(projectData);
 }
 
@@ -18,10 +21,17 @@ const getProject = async (id) => {
         getProject(id)
     }, [])
     return (
-        <div>
-            <p>{project.title}</p>
-            <p>{project.subtitle}</p>
-            <img src={"/project1.jpg"} alt="" />
+        <div className={`${styles.content} container`}>
+            {project && 
+            
+            <>
+                <img src={project.img} className={styles.img} alt="" />
+                <div className={styles.info}>
+                    <p>{project.title}</p>
+                    <p>{project.subtitle}</p>
+                </div>
+            </>
+            }
         </div>
     )
 }

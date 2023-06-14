@@ -8,7 +8,7 @@ const ProjectsList = ({ projects, isLoading }) => {
 
   return (
   projects &&  projects.map((project, i) => (
-    <Link key={i} to={`projects/${i}`}>
+    <Link key={i} to={`projects/${project.id}`}>
     <div className={`${styles.card}`}>
       <img src={project.img} alt="tet" />
       <div className={styles.textBlock}>
