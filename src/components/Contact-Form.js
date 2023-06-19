@@ -1,7 +1,15 @@
 import Button, { BtnColor } from '../components/utils/Button';
 import styles from './Contact-form.module.css';
 
+
 const ContactForm = () => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+   const form = evt.target;
+   const formData =  Object.fromEntries(new FormData(form));
+   console.log(formData);    
+  }
+
   return (
     <section className={`${styles.contactForm}`}>
       <div className={styles.title}>
@@ -11,20 +19,20 @@ const ContactForm = () => {
             commercial or residential.
           </p>
       </div>
-      <form className={styles.form}>
+      <form name='contactForm' onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.content}>
           <div className={styles.upper}>
             <div className={`${styles.column}`}>
-              <input placeholder="Your Name" />
-              <input placeholder="Reason to contacting" />
+              <input name='clientName' placeholder="Your Name" />
+              <input name='reasonToContact' placeholder="Reason to contacting" />
             </div>
             <div className={`${styles.column}`}>
-              <input placeholder="Email" />
-              <input placeholder="Phone" />
+              <input name='clientEmail' placeholder="Email" />
+              <input name='clientPhone' placeholder="Phone" />
             </div>
           </div>
           <div className={styles.bottom}>
-            <input placeholder="message" />
+            <input name='clientMessage' placeholder="message" />
             <span>* indicates a required field</span>
             <Button text={"Sumbit"} color={BtnColor.blue}/>
           </div>

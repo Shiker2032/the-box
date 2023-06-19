@@ -9,6 +9,7 @@ import {
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("all")
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
@@ -34,15 +35,15 @@ const Projects = () => {
   };
 
   const handleFilterClick = async (evt) => {
-    const category = evt.target.textContent.toLowerCase();
+    setActiveCategory(evt.target.textContent.toLowerCase())
     setLoading(true);
-    console.log(category);
-    if (category !== 'all') {
-      const data = await getFilteredProjectsDataByCategory(category);
-      setProjects(data);
+
+    if (activeCategory !== 'all') {
+      const data = await getFilteredProjectsDataByCategory(activeCategory);
+      setProjects((prev) => prev = [...data]);
     } else {
-      const data = await getProjectsData();
-      setProjects(data);
+      const data = await getProjectsData();      
+      setProjects((prev) => prev = [...data]);
     }
     setLoading(false);
   };
@@ -55,11 +56,11 @@ const Projects = () => {
         <>
           <div className={styles.left}>
             <h2>Projects</h2>
-            <ul>
-              <li onClick={handleFilterClick}>All</li>
-              <li onClick={handleFilterClick}>Commercial</li>
-              <li onClick={handleFilterClick}>Residential</li>
-              <li onClick={handleFilterClick}>Other</li>
+            <ul className={styles.projects__list}>
+              <li className={`${styles.projects__item} ${activeCategory === "all" ? styles.active : ""}`} onClick={handleFilterClick}>All</li>
+              <li className={`${styles.projects__item} ${activeCategory === "commercial" ? styles.active : ""}`} onClick={handleFilterClick}>Commercial</li>
+              <li className={`${styles.projects__item} ${activeCategory === "residential" ? styles.active : ""}`} onClick={handleFilterClick}>Residential</li>
+              <li className={`${styles.projects__item} ${activeCategory === "other" ? styles.active : ""}`} onClick={handleFilterClick}>Other</li>
             </ul>
           </div>
           <div className={styles.right}>
@@ -68,16 +69,14 @@ const Projects = () => {
             </div>
             <div className={styles.controls}>
               <Button
-                color={`${BtnColor.arrow} ${
-                  currentPage !== 1 ? '' : BtnColor.disabled
-                }`}
+                color={`${BtnColor.arrow} ${currentPage !== 1 ? '' : BtnColor.disabled
+                  }`}
                 handleClick={decreasePage}
                 text={'<-- Back'}
               />
               <Button
-                color={`${BtnColor.arrow} ${
-                  currentPage < totalPages ? '' : BtnColor.disabled
-                }`}
+                color={`${BtnColor.arrow} ${currentPage < totalPages ? '' : BtnColor.disabled
+                  }`}
                 handleClick={increasePage}
                 text={'Next -->'}
               />
