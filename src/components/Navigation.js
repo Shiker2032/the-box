@@ -23,19 +23,19 @@ const Navigation = () => {
           </div>         
           <ul className={menuClass}>
           <li className={styles.item}>
-           <Link to={"/"}>Home</Link>
+           <Link className={styles.link} to={"/"}>Home</Link>
           </li>
           <li className={styles.item}>
-           <Link to={"/about"}>About us</Link>
+           <Link className={styles.link} to={"/about"}>About us</Link>
           </li>
           <li className={styles.item}>
-           <Link to={"/projects"}>Projects</Link>
+           <Link className={styles.link} to={"/projects"}>Projects</Link>
           </li>
           <li className={styles.item}>
-           <Link to={"/services"}>Services</Link>
+           <Link className={styles.link} to={"/services"}>Services</Link>
           </li>
           <li className={styles.item}>
-           <Link to={"/contact-us"}>Contact Us</Link>
+           <Link className={styles.link} to={"/contact-us"}>Contact Us</Link>
           </li>
         </ul> 
       </div>      

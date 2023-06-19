@@ -1,4 +1,4 @@
-import Button, { BtnColor } from './Button';
+import Button, { BtnColor } from './utils/Button';
 import styles from './Footer.module.css'
 
 const Footer = () => {

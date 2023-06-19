@@ -1,10 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Navigation from './components//utils/Navigation';
-import Rights from './components//utils/Rights';
+import Navigation from './components/Navigation';
+import Rights from './components/Rights';
 import Home from './pages/Home';
-import Footer from './components/utils/Footer';
+import Footer from './components/Footer';
 import ProjectPage from './pages/Project-page';
 
 function App() {
